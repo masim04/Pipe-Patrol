@@ -1,720 +1,2465 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pipe Patrol Plumbing | 24/7 Master Plumbers & Fast Emergency Dispatch</title>
-  <!-- Google Fonts & FontAwesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- EMERGENCY TOP TICKER BAR -->
-  <div class="emergency-bar">
-    <div class="emergency-bar-left">
-      <div class="pulse-dot"></div>
-      <span><strong>24/7 EMERGENCY DISPATCH ACTIVE:</strong> Average Technician Arrival Time: <strong>22 Minutes</strong></span>
-    </div>
-    <div>
-      <span><i class="fa-solid fa-shield-halved"></i> Master Plumber License #MP-940211 • Fully Insured ($2M)</span>
-    </div>
-  </div>
-
-  <!-- NAVIGATION HEADER -->
-  <header>
-    <div class="navbar">
-      <a href="#home" class="logo" onclick="switchPage('home')">
-        <div class="logo-badge"><i class="fa-solid fa-faucet-drip"></i></div>
-        <span>Pipe Patrol</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="#home" id="nav-home" class="active" onclick="switchPage('home')">Home</a>
-        <a href="#services" id="nav-services" onclick="switchPage('services')">Services & Rates</a>
-        <a href="#estimator" id="nav-estimator" onclick="switchPage('estimator')">Cost Estimator</a>
-        <a href="#emergency" id="nav-emergency" onclick="switchPage('emergency')">24/7 Emergency</a>
-        <a href="#about" id="nav-about" onclick="switchPage('about')">Licensing & Trust</a>
-        <a href="#contact" id="nav-contact" onclick="switchPage('contact')">Contact Desk</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Pipe Patrol Plumbing | 24/7 Master Plumbers & Fast Emergency Dispatch
+    </title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- EMERGENCY TOP TICKER BAR -->
+    <div class="emergency-bar">
+      <div class="emergency-bar-left">
+        <div class="pulse-dot"></div>
+        <span
+          ><strong>24/7 EMERGENCY DISPATCH ACTIVE:</strong> Average Technician
+          Arrival Time: <strong>22 Minutes</strong></span
+        >
       </div>
-
-      <div class="nav-actions">
-        
-        <button class="btn btn-orange" onclick="openBookingModal('Emergency Service Request')">
-          <i class="fa-solid fa-truck-fast"></i> Dispatch Plumber
-        </button>
-        <div class="mobile-hamburger" onclick="toggleDrawer()">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+      <div>
+        <span
+          ><i class="fa-solid fa-shield-halved"></i> Master Plumber License
+          #MP-940211 • Fully Insured ($2M)</span
+        >
       </div>
     </div>
-  </header>
 
-  <!-- MOBILE DRAWER -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-header">
-      <div class="logo">
-        <div class="logo-badge"><i class="fa-solid fa-faucet-drip"></i></div>
-        <span>Pipe Patrol</span>
-      </div>
-      <div style="font-size:1.6rem; cursor:pointer;" onclick="toggleDrawer()">&times;</div>
-    </div>
-    <div class="drawer-links">
-      <a href="#home" onclick="switchPage('home')">Home & Sales Machine</a>
-      <a href="#services" onclick="switchPage('services')">Plumbing Services & Rates</a>
-      <a href="#estimator" onclick="switchPage('estimator')">Interactive Cost Estimator</a>
-      <a href="#emergency" onclick="switchPage('emergency')">24/7 Emergency Dispatch</a>
-      <a href="#about" onclick="switchPage('about')">Licensing & Warranty</a>
-      <a href="#contact" onclick="switchPage('contact')">Contact & Service Desk</a>
-    </div>
-    <div style="margin-top:auto; padding-top:20px;">
-      <button class="btn btn-orange" style="width:100%" onclick="openBookingModal('Mobile Emergency Dispatch')">Call Emergency Truck</button>
-    </div>
-  </div>
+    <!-- NAVIGATION HEADER -->
+    <header>
+      <div class="navbar">
+        <a href="#home" class="logo" onclick="switchPage('home')">
+          <div class="logo-badge"><i class="fa-solid fa-faucet-drip"></i></div>
+          <span>Pipe Patrol</span>
+        </a>
 
-
-  <!-- =================================================================== -->
-  <!-- PAGE 1: HOME PAGE & SALES MACHINE (`#home`)                         -->
-  <!-- =================================================================== -->
-  <div id="home" class="page-view active">
-    
-    <!-- Hero Section -->
-    <section class="section-padding bg-cream" style="padding-top:60px;">
-      <div class="container grid-2">
-        <div>
-          <span class="pill-badge" style="background:var(--orange-light); color:var(--orange-alert); border-color:#fed7aa;">
-            <i class="fa-solid fa-circle-check"></i> Licensed Master Plumbers On Call
-          </span>
-          <h1 style="font-size: 3.4rem; font-weight: 800; line-height: 1.15; margin: 20px 0; color: var(--navy-dark);">
-            Fast, Guaranteed Plumbing Repairs <span style="color:var(--blue-accent);">Without The Stress</span>
-          </h1>
-          <p style="font-size: 1.15rem; color: var(--slate-body); margin-bottom: 30px;">
-            From emergency burst pipe containment to complete water heater installations. Upfront flat-rate pricing with 100% money-back warranty.
-          </p>
-          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-            <button class="btn btn-orange" style="padding:16px 32px; font-size:1.05rem;" onclick="switchPage('emergency')">
-              <i class="fa-solid fa-bolt"></i> Emergency Dispatch Now
-            </button>
-            <button class="btn btn-outline" style="padding:16px 32px; font-size:1.05rem;" onclick="switchPage('estimator')">
-              Calculate Cost
-            </button>
-          </div>
-
-          <div style="display:flex; gap:30px; margin-top:40px; padding-top:25px; border-top:1px solid var(--border-color);">
-            <div>
-              <strong style="font-size:1.8rem; color:var(--navy-dark);">25,000+</strong>
-              <p style="font-size:0.85rem; color:var(--slate-light);">Repairs Completed</p>
-            </div>
-            <div>
-              <strong style="font-size:1.8rem; color:var(--navy-dark);">4.9/5 ★</strong>
-              <p style="font-size:0.85rem; color:var(--slate-light);">Over 3,500+ Reviews</p>
-            </div>
-            <div>
-              <strong style="font-size:1.8rem; color:var(--navy-dark);">100%</strong>
-              <p style="font-size:0.85rem; color:var(--slate-light);">Labor Warranty</p>
-            </div>
-          </div>
+        <div class="nav-links">
+          <a
+            href="#home"
+            id="nav-home"
+            class="active"
+            onclick="switchPage('home')"
+            >Home</a
+          >
+          <a href="#services" id="nav-services" onclick="switchPage('services')"
+            >Services & Rates</a
+          >
+          <a
+            href="#estimator"
+            id="nav-estimator"
+            onclick="switchPage('estimator')"
+            >Cost Estimator</a
+          >
+          <a
+            href="#emergency"
+            id="nav-emergency"
+            onclick="switchPage('emergency')"
+            >24/7 Emergency</a
+          >
+          <a href="#about" id="nav-about" onclick="switchPage('about')"
+            >Licensing & Trust</a
+          >
+          <a href="#contact" id="nav-contact" onclick="switchPage('contact')"
+            >Contact Desk</a
+          >
         </div>
 
-        <!-- Hero Photo -->
-        <div style="position:relative;">
-          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80" style="border-radius:var(--radius-lg); box-shadow:var(--shadow-hover);" alt="Licensed Plumber Work">
-          <div style="position:absolute; bottom:20px; left:20px; background:rgba(255,255,255,0.94); backdrop-filter:blur(8px); padding:16px 22px; border-radius:var(--radius-md); box-shadow:0 10px 25px rgba(0,0,0,0.15); display:flex; align-items:center; gap:15px;">
-            <i class="fa-solid fa-wrench" style="font-size:1.8rem; color:var(--orange-bright);"></i>
-            <div>
-              <strong style="font-size:0.95rem; display:block;">Upfront Flat-Rate Pricing</strong>
-              <span style="font-size:0.8rem; color:var(--slate-light);">No hidden hourly surprise fees ever.</span>
-            </div>
+        <div class="nav-actions">
+          <button
+            class="btn btn-orange"
+            onclick="openBookingModal('Emergency Service Request')"
+          >
+            <i class="fa-solid fa-truck-fast"></i> Dispatch Plumber
+          </button>
+          <div class="mobile-hamburger" onclick="toggleDrawer()">
+            <i class="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- Emergency Call Bar -->
-    <section class="section-padding bg-navy" style="padding:40px 0;">
-      <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
-        <div>
-          <h3 style="font-size:1.8rem; font-weight:800; color:white;">Have an Active Leak or Burst Pipe?</h3>
-          <p style="color:#94a3b8;">Our emergency trucks are stocked and rolling right now in your city.</p>
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <div class="logo">
+          <div class="logo-badge"><i class="fa-solid fa-faucet-drip"></i></div>
+          <span>Pipe Patrol</span>
         </div>
-        <button class="btn btn-orange" style="font-size:1.1rem; padding:16px 36px;" onclick="openBookingModal('Immediate Burst Pipe Emergency')">
-          <i class="fa-solid fa-phone"></i> Call (800) 555-PIPE
+        <div
+          style="font-size: 1.6rem; cursor: pointer"
+          onclick="toggleDrawer()"
+        >
+          &times;
+        </div>
+      </div>
+      <div class="drawer-links">
+        <a href="#home" onclick="switchPage('home')">Home & Sales Machine</a>
+        <a href="#services" onclick="switchPage('services')"
+          >Plumbing Services & Rates</a
+        >
+        <a href="#estimator" onclick="switchPage('estimator')"
+          >Interactive Cost Estimator</a
+        >
+        <a href="#emergency" onclick="switchPage('emergency')"
+          >24/7 Emergency Dispatch</a
+        >
+        <a href="#about" onclick="switchPage('about')">Licensing & Warranty</a>
+        <a href="#contact" onclick="switchPage('contact')"
+          >Contact & Service Desk</a
+        >
+      </div>
+      <div style="margin-top: auto; padding-top: 20px">
+        <button
+          class="btn btn-orange"
+          style="width: 100%"
+          onclick="openBookingModal('Mobile Emergency Dispatch')"
+        >
+          Call Emergency Truck
         </button>
       </div>
-    </section>
+    </div>
 
-    <!-- Services Grid -->
-    <section class="section-padding bg-white">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="pill-badge">Core Solutions</span>
-          <h2>Our Core Plumbing Services</h2>
-          <p>Handled by background-checked, master-certified technicians.</p>
-        </div>
-
-        <div class="grid-3 reveal">
-          <div class="photo-card">
-            <div class="card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=600&q=80" alt="Drain Cleaning">
-              <span class="card-badge">Same-Day</span>
+    <!-- =================================================================== -->
+    <!-- PAGE 1: HOME PAGE & SALES MACHINE (`#home`)                         -->
+    <!-- =================================================================== -->
+    <div id="home" class="page-view active">
+      <!-- Hero Section -->
+      <section class="section-padding bg-cream" style="padding-top: 60px">
+        <div class="container grid-2">
+          <div>
+            <span
+              class="pill-badge"
+              style="
+                background: var(--orange-light);
+                color: var(--orange-alert);
+                border-color: #fed7aa;
+              "
+            >
+              <i class="fa-solid fa-circle-check"></i> Licensed Master Plumbers
+              On Call
+            </span>
+            <h1
+              style="
+                font-size: 3.4rem;
+                font-weight: 800;
+                line-height: 1.15;
+                margin: 20px 0;
+                color: var(--navy-dark);
+              "
+            >
+              Fast, Guaranteed Plumbing Repairs
+              <span style="color: var(--blue-accent)">Without The Stress</span>
+            </h1>
+            <p
+              style="
+                font-size: 1.15rem;
+                color: var(--slate-body);
+                margin-bottom: 30px;
+              "
+            >
+              From emergency burst pipe containment to complete water heater
+              installations. Upfront flat-rate pricing with 100% money-back
+              warranty.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap">
+              <button
+                class="btn btn-orange"
+                style="padding: 16px 32px; font-size: 1.05rem"
+                onclick="switchPage('emergency')"
+              >
+                <i class="fa-solid fa-bolt"></i> Emergency Dispatch Now
+              </button>
+              <button
+                class="btn btn-outline"
+                style="padding: 16px 32px; font-size: 1.05rem"
+                onclick="switchPage('estimator')"
+              >
+                Calculate Cost
+              </button>
             </div>
-            <div class="card-body">
-              <h3>Drain Unclogging & Hydro-Jetting</h3>
-              <p style="color:var(--slate-light); font-size:0.9rem; margin:10px 0;">Clear stubborn grease, roots, and blockages with high-pressure water jetting.</p>
-              <strong style="color:var(--blue-accent); font-size:1.1rem; margin-bottom:15px;">Flat Rate from $149</strong>
-              <button class="btn btn-outline" style="width:100%" onclick="openBookingModal('Drain Unclogging')">Book Drain Service</button>
-            </div>
-          </div>
 
-          <div class="photo-card">
-            <div class="card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Water Heater Repair">
-              <span class="card-badge" style="background:var(--orange-alert);">Top Rated</span>
-            </div>
-            <div class="card-body">
-              <h3>Water Heater Repair & Install</h3>
-              <p style="color:var(--slate-light); font-size:0.9rem; margin:10px 0;">Tankless & traditional water heater diagnostics, flushing, and replacement.</p>
-              <strong style="color:var(--blue-accent); font-size:1.1rem; margin-bottom:15px;">Flat Rate from $189</strong>
-              <button class="btn btn-blue" style="width:100%" onclick="openBookingModal('Water Heater Service')">Book Water Heater</button>
-            </div>
-          </div>
-
-          <div class="photo-card">
-            <div class="card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Leak Detection">
-            </div>
-            <div class="card-body">
-              <h3>Slab & Underground Leak Detection</h3>
-              <p style="color:var(--slate-light); font-size:0.9rem; margin:10px 0;">Acoustic and thermal camera technology to locate hidden pipe leaks without destruction.</p>
-              <strong style="color:var(--blue-accent); font-size:1.1rem; margin-bottom:15px;">Inspection from $199</strong>
-              <button class="btn btn-outline" style="width:100%" onclick="openBookingModal('Leak Detection')">Book Leak Inspection</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding bg-cream">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="pill-badge">Why Clients Stay</span>
-          <h2>Premium service designed around trust, speed, and clarity</h2>
-        </div>
-        <div class="feature-grid reveal">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <h4>Licensed and Verified</h4>
-            <p>Every technician is background-checked, insured, and equipped for both residential and commercial projects.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
-            <h4>Rapid Dispatch</h4>
-            <p>We keep live truck availability and offer 24/7 call handling with priority emergency routing.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-file-contract"></i></div>
-            <h4>Transparent Quotes</h4>
-            <p>Flat-rate pricing is explained before we start so there are no mid-project surprises.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-            <h4>Full-Service Toolbox</h4>
-            <p>From minor faucet work to sewer scope inspections, our crews arrive ready for the full job.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding bg-white">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="pill-badge">Our Process</span>
-          <h2>A polished experience from first call to final cleanup</h2>
-        </div>
-        <div class="grid-3 reveal">
-          <div class="process-card"><div class="process-step">1</div><h4>Book or Call</h4><p>Share the issue, property type, and urgency so we can route the correct specialist quickly.</p></div>
-          <div class="process-card"><div class="process-step">2</div><h4>Verify and Dispatch</h4><p>We confirm the scope, prepare equipment, and send a technician with a clear arrival window.</p></div>
-          <div class="process-card"><div class="process-step">3</div><h4>Fix and Follow Through</h4><p>Repairs are completed, tested, and explained with a warranty-backed completion summary.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding bg-cream">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="pill-badge">Trusted Voices</span>
-          <h2>Homeowners choose Pipe Patrol when the job matters</h2>
-        </div>
-        <div class="review-grid reveal">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>“They arrived within 20 minutes, explained the whole repair, and left the area spotless. That level of professionalism is rare.”</p>
-            <div class="review-author">- Elena R.</div>
-          </div>
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>“The quote was clear, the communication was excellent, and the replacement was completed in one visit. We’ll call them again.”</p>
-            <div class="review-author">- Marcus P.</div>
-          </div>
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>“Our emergency leak was handled with calm urgency. The team was prepared, courteous, and incredibly efficient.”</p>
-            <div class="review-author">- Nina T.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Us vs The Other Guys Table -->
-    <section class="section-padding bg-cream">
-      <div class="container">
-        <div class="section-header">
-          <span class="pill-badge">Why Pipe Patrol</span>
-          <h2>The Pipe Patrol Standard vs Competitors</h2>
-        </div>
-
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Service Standard</th>
-              <th>Pipe Patrol Plumbing</th>
-              <th>Average Local Plumbers</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Upfront Flat-Rate Quotes (No Hidden Fees)</strong></td>
-              <td><i class="fa-solid fa-circle-check"></i> Yes (Guaranteed before work starts)</td>
-              <td><i class="fa-solid fa-circle-xmark"></i> Open-ended hourly billing</td>
-            </tr>
-            <tr>
-              <td><strong>100% Master Plumber Licensing</strong></td>
-              <td><i class="fa-solid fa-circle-check"></i> Verified & Fingerprinted</td>
-              <td><i class="fa-solid fa-circle-xmark"></i> Uncertified apprentices</td>
-            </tr>
-            <tr>
-              <td><strong>24/7 Midnight Emergency Dispatch</strong></td>
-              <td><i class="fa-solid fa-circle-check"></i> 22-Min average arrival time</td>
-              <td><i class="fa-solid fa-circle-xmark"></i> Answering machine / Next day</td>
-            </tr>
-            <tr>
-              <td><strong>Full Workmanship Labor Warranty</strong></td>
-              <td><i class="fa-solid fa-circle-check"></i> 1-Year Labor & Parts Guarantee</td>
-              <td><i class="fa-solid fa-circle-xmark"></i> 30 Days or None</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- FAQs -->
-    <section class="section-padding bg-white">
-      <div class="container" style="max-width:850px;">
-        <div class="section-header">
-          <span class="pill-badge">FAQ</span>
-          <h2>Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-card active" onclick="toggleFaq(this)">
-          <div class="faq-head">How fast can a technician arrive at my house? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-body">For emergency calls (burst pipes, major sewage backups), our average response time is under 25 minutes across our entire metro service radius.</div>
-        </div>
-
-        <div class="faq-card" onclick="toggleFaq(this)">
-          <div class="faq-head">Do you charge extra for nights or weekend calls? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-body">We provide transparent upfront flat rates. You will review and approve the exact price before any work begins.</div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
-  <!-- =================================================================== -->
-  <!-- PAGE 2: PLUMBING SERVICES & RATES (`#services`)                   -->
-  <!-- =================================================================== -->
-  <div id="services" class="page-view">
-    <section class="section-padding bg-cream">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="pill-badge">Transparent Rates</span>
-          <h2>Plumbing Services & Fixed Rates</h2>
-          <p>No surprise bill shock. You approve the flat rate before we touch a single pipe.</p>
-        </div>
-
-        <div class="grid-3 reveal" style="margin-bottom:50px;">
-          <div class="photo-card">
-            <div class="card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=600&q=80" alt="Drain Cleaning">
-            </div>
-            <div class="card-body">
-              <h3>Drain & Sewer Jetting</h3>
-              <p style="color:var(--slate-light); font-size:0.9rem;">Camera video inspection + motorized snaking or hydro-jet cleaning.</p>
-              <div style="background:#f1f5f9; padding:12px; border-radius:8px; margin:15px 0; font-weight:700; color:var(--navy-dark);">Standard Rate: $149 - $299</div>
-              <button class="btn btn-blue" style="width:100%;" onclick="openBookingModal('Drain Jetting')">Schedule Drain Service</button>
+            <div
+              style="
+                display: flex;
+                gap: 30px;
+                margin-top: 40px;
+                padding-top: 25px;
+                border-top: 1px solid var(--border-color);
+              "
+            >
+              <div>
+                <strong style="font-size: 1.8rem; color: var(--navy-dark)"
+                  >25,000+</strong
+                >
+                <p style="font-size: 0.85rem; color: var(--slate-light)">
+                  Repairs Completed
+                </p>
+              </div>
+              <div>
+                <strong style="font-size: 1.8rem; color: var(--navy-dark)"
+                  >4.9/5 ★</strong
+                >
+                <p style="font-size: 0.85rem; color: var(--slate-light)">
+                  Over 3,500+ Reviews
+                </p>
+              </div>
+              <div>
+                <strong style="font-size: 1.8rem; color: var(--navy-dark)"
+                  >100%</strong
+                >
+                <p style="font-size: 0.85rem; color: var(--slate-light)">
+                  Labor Warranty
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="photo-card">
-            <div class="card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Water Heater">
-            </div>
-            <div class="card-body">
-              <h3>Water Heater Replacement</h3>
-              <p style="color:var(--slate-light); font-size:0.9rem;">Removal of old unit, installation of high-efficiency gas/electric heater + expansion tank.</p>
-              <div style="background:#f1f5f9; padding:12px; border-radius:8px; margin:15px 0; font-weight:700; color:var(--navy-dark);">Installation: $899 - $1,499</div>
-              <button class="btn btn-blue" style="width:100%;" onclick="openBookingModal('Water Heater Install')">Get Installation Quote</button>
-            </div>
-          </div>
-
-          <div class="photo-card">
-            <div class="card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Fixture Install">
-            </div>
-            <div class="card-body">
-              <h3>Toilet & Faucet Installation</h3>
-              <p style="color:var(--slate-light); font-size:0.9rem;">Removal, shutoff valve replacement, supply line connection, and leak test.</p>
-              <div style="background:#f1f5f9; padding:12px; border-radius:8px; margin:15px 0; font-weight:700; color:var(--navy-dark);">Flat Rate: $120 - $220</div>
-              <button class="btn btn-blue" style="width:100%;" onclick="openBookingModal('Fixture Install')">Book Fixture Install</button>
+          <!-- Hero Photo -->
+          <div style="position: relative">
+            <img
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80"
+              style="
+                border-radius: var(--radius-lg);
+                box-shadow: var(--shadow-hover);
+              "
+              alt="Licensed Plumber Work"
+            />
+            <div
+              style="
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                background: rgba(255, 255, 255, 0.94);
+                backdrop-filter: blur(8px);
+                padding: 16px 22px;
+                border-radius: var(--radius-md);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                display: flex;
+                align-items: center;
+                gap: 15px;
+              "
+            >
+              <i
+                class="fa-solid fa-wrench"
+                style="font-size: 1.8rem; color: var(--orange-bright)"
+              ></i>
+              <div>
+                <strong style="font-size: 0.95rem; display: block"
+                  >Upfront Flat-Rate Pricing</strong
+                >
+                <span style="font-size: 0.8rem; color: var(--slate-light)"
+                  >No hidden hourly surprise fees ever.</span
+                >
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="grid-2 reveal">
-          <div class="info-card">
-            <h4>What’s included with every visit</h4>
-            <p>Our technicians arrive with diagnostic tools, replacement fittings, and a full cleanup checklist so the job is handled without unnecessary delays.</p>
+      <!-- Emergency Call Bar -->
+      <section class="section-padding bg-navy" style="padding: 40px 0">
+        <div
+          class="container"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+          "
+        >
+          <div>
+            <h3 style="font-size: 1.8rem; font-weight: 800; color: white">
+              Have an Active Leak or Burst Pipe?
+            </h3>
+            <p style="color: #94a3b8">
+              Our emergency trucks are stocked and rolling right now in your
+              city.
+            </p>
           </div>
-          <div class="info-card">
-            <h4>Service coverage</h4>
-            <p>We serve homeowner properties, condos, multifamily units, and commercial facilities with same-day and after-hours response capacity.</p>
+          <button
+            class="btn btn-orange"
+            style="font-size: 1.1rem; padding: 16px 36px"
+            onclick="openBookingModal('Immediate Burst Pipe Emergency')"
+          >
+            <i class="fa-solid fa-phone"></i> Call (800) 555-PIPE
+          </button>
+        </div>
+      </section>
+      <!-- Trusted By Section -->
+      <section class="section-padding bg-white" style="padding: 70px 0">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Trusted Every Day</span>
+            <h2>Why Thousands of Homeowners Trust Pipe Patrol</h2>
+            <p>
+              We combine licensed expertise, transparent pricing, and rapid
+              response to deliver plumbing services you can rely on.
+            </p>
+          </div>
+
+          <div class="grid-4 reveal">
+            <div class="feature-card" style="text-align: center">
+              <div class="feature-icon" style="margin: 0 auto 18px">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+
+              <h4>Licensed Professionals</h4>
+
+              <p>
+                Every technician is fully licensed, trained, and follows the
+                latest plumbing regulations and safety standards.
+              </p>
+            </div>
+
+            <div class="feature-card" style="text-align: center">
+              <div class="feature-icon" style="margin: 0 auto 18px">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+
+              <h4>Fully Insured</h4>
+
+              <p>
+                Our work is backed by comprehensive liability insurance for
+                complete peace of mind.
+              </p>
+            </div>
+
+            <div class="feature-card" style="text-align: center">
+              <div class="feature-icon" style="margin: 0 auto 18px">
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <h4>4.9 Star Rated</h4>
+
+              <p>
+                Thousands of satisfied homeowners continue recommending Pipe
+                Patrol because we consistently deliver quality work.
+              </p>
+            </div>
+
+            <div class="feature-card" style="text-align: center">
+              <div class="feature-icon" style="margin: 0 auto 18px">
+                <i class="fa-solid fa-award"></i>
+              </div>
+
+              <h4>25,000+ Jobs Completed</h4>
+
+              <p>
+                From small repairs to major plumbing projects, we've
+                successfully completed thousands of service calls.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="hero-shell reveal"
+            style="margin-top: 50px; text-align: center"
+          >
+            <h3 style="margin-bottom: 18px">
+              Trusted For Residential & Commercial Plumbing
+            </h3>
+
+            <p
+              style="
+                max-width: 800px;
+                margin: 0 auto 30px;
+                color: var(--slate-light);
+              "
+            >
+              Whether you need emergency plumbing, drain cleaning, leak
+              detection, water heater installation, or complete pipe
+              replacement, our experienced team delivers reliable workmanship
+              backed by transparent pricing and a satisfaction guarantee.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 18px;
+                flex-wrap: wrap;
+              "
+            >
+              <span class="pill-badge"> ✓ Same-Day Service </span>
+
+              <span class="pill-badge"> ✓ Emergency Repairs </span>
+
+              <span class="pill-badge"> ✓ Upfront Pricing </span>
+
+              <span class="pill-badge"> ✓ Warranty Included </span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
+      </section>
+      <!-- Services Grid -->
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Core Solutions</span>
+            <h2>Our Core Plumbing Services</h2>
+            <p>Handled by background-checked, master-certified technicians.</p>
+          </div>
 
+          <div class="grid-3 reveal">
+            <div class="photo-card">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=600&q=80"
+                  alt="Drain Cleaning"
+                />
+                <span class="card-badge">Same-Day</span>
+              </div>
+              <div class="card-body">
+                <h3>Drain Unclogging & Hydro-Jetting</h3>
+                <p
+                  style="
+                    color: var(--slate-light);
+                    font-size: 0.9rem;
+                    margin: 10px 0;
+                  "
+                >
+                  Clear stubborn grease, roots, and blockages with high-pressure
+                  water jetting.
+                </p>
+                <strong
+                  style="
+                    color: var(--blue-accent);
+                    font-size: 1.1rem;
+                    margin-bottom: 15px;
+                  "
+                  >Flat Rate from $149</strong
+                >
+                <button
+                  class="btn btn-outline"
+                  style="width: 100%"
+                  onclick="openBookingModal('Drain Unclogging')"
+                >
+                  Book Drain Service
+                </button>
+              </div>
+            </div>
 
-  <!-- =================================================================== -->
-  <!-- PAGE 3: INTERACTIVE COST ESTIMATOR (`#estimator`)                   -->
-  <!-- =================================================================== -->
-  <div id="estimator" class="page-view">
-    <section class="section-padding bg-white">
-      <div class="container" style="max-width:900px;">
-        <div class="section-header reveal">
-          <span class="pill-badge">Cost Calculator</span>
-          <h2>Interactive Cost Estimator</h2>
-          <p>Get an instant ballpark calculation before dispatching a plumber.</p>
+            <div class="photo-card">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80"
+                  alt="Water Heater Repair"
+                />
+                <span class="card-badge" style="background: var(--orange-alert)"
+                  >Top Rated</span
+                >
+              </div>
+              <div class="card-body">
+                <h3>Water Heater Repair & Install</h3>
+                <p
+                  style="
+                    color: var(--slate-light);
+                    font-size: 0.9rem;
+                    margin: 10px 0;
+                  "
+                >
+                  Tankless & traditional water heater diagnostics, flushing, and
+                  replacement.
+                </p>
+                <strong
+                  style="
+                    color: var(--blue-accent);
+                    font-size: 1.1rem;
+                    margin-bottom: 15px;
+                  "
+                  >Flat Rate from $189</strong
+                >
+                <button
+                  class="btn btn-blue"
+                  style="width: 100%"
+                  onclick="openBookingModal('Water Heater Service')"
+                >
+                  Book Water Heater
+                </button>
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+                  alt="Leak Detection"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Slab & Underground Leak Detection</h3>
+                <p
+                  style="
+                    color: var(--slate-light);
+                    font-size: 0.9rem;
+                    margin: 10px 0;
+                  "
+                >
+                  Acoustic and thermal camera technology to locate hidden pipe
+                  leaks without destruction.
+                </p>
+                <strong
+                  style="
+                    color: var(--blue-accent);
+                    font-size: 1.1rem;
+                    margin-bottom: 15px;
+                  "
+                  >Inspection from $199</strong
+                >
+                <button
+                  class="btn btn-outline"
+                  style="width: 100%"
+                  onclick="openBookingModal('Leak Detection')"
+                >
+                  Book Leak Inspection
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="calc-box reveal">
-          <div style="margin-bottom:25px;">
-            <label style="font-weight:700;">1. Select Issue Category</label>
-            <div class="calc-options">
-              <div class="calc-pill active" onclick="setCalc('issue', 'drain', this)">Drain / Clog</div>
-              <div class="calc-pill" onclick="setCalc('issue', 'heater', this)">Water Heater</div>
-              <div class="calc-pill" onclick="setCalc('issue', 'leak', this)">Pipe Leak</div>
-              <div class="calc-pill" onclick="setCalc('issue', 'burst', this)">Burst Emergency</div>
+      <section class="section-padding bg-cream">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Why Clients Stay</span>
+            <h2>Premium service designed around trust, speed, and clarity</h2>
+          </div>
+          <div class="feature-grid reveal">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h4>Licensed and Verified</h4>
+              <p>
+                Every technician is background-checked, insured, and equipped
+                for both residential and commercial projects.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+              <h4>Rapid Dispatch</h4>
+              <p>
+                We keep live truck availability and offer 24/7 call handling
+                with priority emergency routing.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-file-contract"></i>
+              </div>
+              <h4>Transparent Quotes</h4>
+              <p>
+                Flat-rate pricing is explained before we start so there are no
+                mid-project surprises.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <h4>Full-Service Toolbox</h4>
+              <p>
+                From minor faucet work to sewer scope inspections, our crews
+                arrive ready for the full job.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Common Plumbing Problems -->
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Common Issues</span>
+            <h2>Common Plumbing Problems We Solve Every Day</h2>
+            <p>
+              No matter how big or small the issue, our experienced plumbers
+              have the tools and expertise to restore your plumbing system
+              quickly and correctly the first time.
+            </p>
+          </div>
+
+          <div class="grid-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-faucet-drip"></i>
+              </div>
+              <h4>Leaky Faucets</h4>
+              <p>
+                Stop wasted water, annoying dripping sounds, and rising water
+                bills with professional faucet repairs.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <h4>Burst Pipes</h4>
+              <p>
+                Emergency pipe repairs and replacements to prevent costly water
+                damage to your home.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-toilet"></i>
+              </div>
+              <h4>Blocked Toilets</h4>
+              <p>
+                Fast unclogging solutions that eliminate backups without
+                damaging your plumbing.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-fire-flame-simple"></i>
+              </div>
+              <h4>No Hot Water</h4>
+              <p>
+                Complete diagnostics and repairs for traditional and tankless
+                water heaters.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-water"></i>
+              </div>
+              <h4>Drain Blockages</h4>
+              <p>
+                Professional drain cleaning and hydro jetting to restore proper
+                flow.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-house-flood-water"></i>
+              </div>
+              <h4>Sewer Backups</h4>
+              <p>
+                Advanced camera inspections and sewer line repairs for serious
+                drainage problems.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <h4>Low Water Pressure</h4>
+              <p>
+                We locate the cause of poor water pressure and restore
+                consistent water flow.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-wrench"></i>
+              </div>
+              <h4>Pipe Replacement</h4>
+              <p>
+                Upgrade aging plumbing systems using durable modern materials
+                designed to last.
+              </p>
             </div>
           </div>
 
-          <div style="margin-bottom:25px;">
-            <label style="font-weight:700;">2. Property Type</label>
-            <div class="calc-options">
-              <div class="calc-pill active" onclick="setCalc('prop', 'house', this)">Single Family Home</div>
-              <div class="calc-pill" onclick="setCalc('prop', 'condo', this)">Condo / Apartment</div>
-              <div class="calc-pill" onclick="setCalc('prop', 'commercial', this)">Commercial Building</div>
+          <div class="hero-shell reveal" style="margin-top: 60px">
+            <div class="grid-2">
+              <div>
+                <h3 style="margin-bottom: 20px">
+                  Not Sure What's Causing The Problem?
+                </h3>
+
+                <p style="color: var(--slate-light); margin-bottom: 20px">
+                  Many plumbing issues begin behind walls, beneath floors, or
+                  underground where they're impossible to see. Our technicians
+                  use professional diagnostic equipment to locate the source
+                  before recommending any repairs.
+                </p>
+
+                <ul
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    color: var(--slate-body);
+                  "
+                >
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i
+                    >Leak Detection
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i
+                    >Drain Camera Inspection
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i
+                    >Water Pressure Testing
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i
+                    >Complete Plumbing Assessment
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80"
+                  alt="Professional plumber diagnosing plumbing issue"
+                  style="
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-hover);
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Our Process</span>
+            <h2>A polished experience from first call to final cleanup</h2>
+          </div>
+          <div class="grid-3 reveal">
+            <div class="process-card">
+              <div class="process-step">1</div>
+              <h4>Book or Call</h4>
+              <p>
+                Share the issue, property type, and urgency so we can route the
+                correct specialist quickly.
+              </p>
+            </div>
+            <div class="process-card">
+              <div class="process-step">2</div>
+              <h4>Verify and Dispatch</h4>
+              <p>
+                We confirm the scope, prepare equipment, and send a technician
+                with a clear arrival window.
+              </p>
+            </div>
+            <div class="process-card">
+              <div class="process-step">3</div>
+              <h4>Fix and Follow Through</h4>
+              <p>
+                Repairs are completed, tested, and explained with a
+                warranty-backed completion summary.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-cream">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Trusted Voices</span>
+            <h2>Homeowners choose Pipe Patrol when the job matters</h2>
+          </div>
+          <div class="review-grid reveal">
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “They arrived within 20 minutes, explained the whole repair, and
+                left the area spotless. That level of professionalism is rare.”
+              </p>
+              <div class="review-author">- Elena R.</div>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “The quote was clear, the communication was excellent, and the
+                replacement was completed in one visit. We’ll call them again.”
+              </p>
+              <div class="review-author">- Marcus P.</div>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Our emergency leak was handled with calm urgency. The team was
+                prepared, courteous, and incredibly efficient.”
+              </p>
+              <div class="review-author">- Nina T.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Us vs The Other Guys Table -->
+      <section class="section-padding bg-cream">
+        <div class="container">
+          <div class="section-header">
+            <span class="pill-badge">Why Pipe Patrol</span>
+            <h2>The Pipe Patrol Standard vs Competitors</h2>
+          </div>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Service Standard</th>
+                <th>Pipe Patrol Plumbing</th>
+                <th>Average Local Plumbers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Upfront Flat-Rate Quotes (No Hidden Fees)</strong>
+                </td>
+                <td>
+                  <i class="fa-solid fa-circle-check"></i> Yes (Guaranteed
+                  before work starts)
+                </td>
+                <td>
+                  <i class="fa-solid fa-circle-xmark"></i> Open-ended hourly
+                  billing
+                </td>
+              </tr>
+              <tr>
+                <td><strong>100% Master Plumber Licensing</strong></td>
+                <td>
+                  <i class="fa-solid fa-circle-check"></i> Verified &
+                  Fingerprinted
+                </td>
+                <td>
+                  <i class="fa-solid fa-circle-xmark"></i> Uncertified
+                  apprentices
+                </td>
+              </tr>
+              <tr>
+                <td><strong>24/7 Midnight Emergency Dispatch</strong></td>
+                <td>
+                  <i class="fa-solid fa-circle-check"></i> 22-Min average
+                  arrival time
+                </td>
+                <td>
+                  <i class="fa-solid fa-circle-xmark"></i> Answering machine /
+                  Next day
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Full Workmanship Labor Warranty</strong></td>
+                <td>
+                  <i class="fa-solid fa-circle-check"></i> 1-Year Labor & Parts
+                  Guarantee
+                </td>
+                <td>
+                  <i class="fa-solid fa-circle-xmark"></i> 30 Days or None
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="section-padding bg-white">
+        <div class="container" style="max-width: 850px">
+          <div class="section-header">
+            <span class="pill-badge">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+
+          <div class="faq-card active" onclick="toggleFaq(this)">
+            <div class="faq-head">
+              How fast can a technician arrive at my house?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-body">
+              For emergency calls (burst pipes, major sewage backups), our
+              average response time is under 25 minutes across our entire metro
+              service radius.
             </div>
           </div>
 
-          <div style="margin-bottom:25px;">
-            <label style="font-weight:700;">3. Dispatch Urgency</label>
-            <div class="calc-options">
-              <div class="calc-pill active" onclick="setCalc('urgency', 'standard', this)">Scheduled (Next 48 Hours)</div>
-              <div class="calc-pill" onclick="setCalc('urgency', 'sameday', this)">Same Day Priority</div>
-              <div class="calc-pill" onclick="setCalc('urgency', 'emergency', this)">24/7 Immediate Emergency</div>
+          <div class="faq-card" onclick="toggleFaq(this)">
+            <div class="faq-head">
+              Do you charge extra for nights or weekend calls?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-body">
+              We provide transparent upfront flat rates. You will review and
+              approve the exact price before any work begins.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 2: PLUMBING SERVICES & RATES (`#services`)                   -->
+    <!-- =================================================================== -->
+    <div id="services" class="page-view">
+      <section class="section-padding bg-cream">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Transparent Rates</span>
+            <h2>Plumbing Services & Fixed Rates</h2>
+            <p>
+              No surprise bill shock. You approve the flat rate before we touch
+              a single pipe.
+            </p>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-bottom: 50px">
+            <div class="photo-card">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=600&q=80"
+                  alt="Drain Cleaning"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Drain & Sewer Jetting</h3>
+                <p style="color: var(--slate-light); font-size: 0.9rem">
+                  Camera video inspection + motorized snaking or hydro-jet
+                  cleaning.
+                </p>
+                <div
+                  style="
+                    background: #f1f5f9;
+                    padding: 12px;
+                    border-radius: 8px;
+                    margin: 15px 0;
+                    font-weight: 700;
+                    color: var(--navy-dark);
+                  "
+                >
+                  Standard Rate: $149 - $299
+                </div>
+                <button
+                  class="btn btn-blue"
+                  style="width: 100%"
+                  onclick="openBookingModal('Drain Jetting')"
+                >
+                  Schedule Drain Service
+                </button>
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80"
+                  alt="Water Heater"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Water Heater Replacement</h3>
+                <p style="color: var(--slate-light); font-size: 0.9rem">
+                  Removal of old unit, installation of high-efficiency
+                  gas/electric heater + expansion tank.
+                </p>
+                <div
+                  style="
+                    background: #f1f5f9;
+                    padding: 12px;
+                    border-radius: 8px;
+                    margin: 15px 0;
+                    font-weight: 700;
+                    color: var(--navy-dark);
+                  "
+                >
+                  Installation: $899 - $1,499
+                </div>
+                <button
+                  class="btn btn-blue"
+                  style="width: 100%"
+                  onclick="openBookingModal('Water Heater Install')"
+                >
+                  Get Installation Quote
+                </button>
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+                  alt="Fixture Install"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Toilet & Faucet Installation</h3>
+                <p style="color: var(--slate-light); font-size: 0.9rem">
+                  Removal, shutoff valve replacement, supply line connection,
+                  and leak test.
+                </p>
+                <div
+                  style="
+                    background: #f1f5f9;
+                    padding: 12px;
+                    border-radius: 8px;
+                    margin: 15px 0;
+                    font-weight: 700;
+                    color: var(--navy-dark);
+                  "
+                >
+                  Flat Rate: $120 - $220
+                </div>
+                <button
+                  class="btn btn-blue"
+                  style="width: 100%"
+                  onclick="openBookingModal('Fixture Install')"
+                >
+                  Book Fixture Install
+                </button>
+              </div>
             </div>
           </div>
 
-          <div style="background:var(--navy-dark); color:white; padding:30px; border-radius:var(--radius-md); margin-top:30px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+          <div class="grid-2 reveal">
+            <div class="info-card">
+              <h4>What’s included with every visit</h4>
+              <p>
+                Our technicians arrive with diagnostic tools, replacement
+                fittings, and a full cleanup checklist so the job is handled
+                without unnecessary delays.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>Service coverage</h4>
+              <p>
+                We serve homeowner properties, condos, multifamily units, and
+                commercial facilities with same-day and after-hours response
+                capacity.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Complete Plumbing Services -->
+        <section style="margin: 70px 0">
+          <div class="section-header reveal">
+            <span class="pill-badge">Complete Solutions</span>
+            <h2>Professional Plumbing Services For Every Property</h2>
+            <p>
+              Whether you need a quick repair, routine maintenance, or a
+              complete plumbing installation, our licensed plumbers deliver
+              dependable workmanship backed by transparent pricing and quality
+              guarantees.
+            </p>
+          </div>
+
+          <div class="grid-3 reveal">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-house"></i>
+              </div>
+
+              <h4>Residential Plumbing</h4>
+
+              <p>
+                Complete plumbing services for houses, apartments, condos, and
+                rental properties including repairs, installations, inspections,
+                and preventative maintenance.
+              </p>
+
+              <ul
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                "
+              >
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Kitchen Plumbing
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Bathroom Repairs
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Pipe Repairs
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Leak Detection
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-building"></i>
+              </div>
+
+              <h4>Commercial Plumbing</h4>
+
+              <p>
+                Reliable plumbing support for offices, restaurants, retail
+                stores, schools, warehouses, and commercial buildings with
+                minimal downtime.
+              </p>
+
+              <ul
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                "
+              >
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Restaurants
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Office Buildings
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Retail Stores
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Industrial Facilities
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+
+              <h4>Preventative Maintenance</h4>
+
+              <p>
+                Regular plumbing inspections help identify potential problems
+                before they become expensive emergency repairs, saving you time
+                and money.
+              </p>
+
+              <ul
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                "
+              >
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Annual Inspections
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Drain Cleaning
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Water Heater Flush
+                </li>
+
+                <li>
+                  <i
+                    class="fa-solid fa-check"
+                    style="color: var(--blue-accent); margin-right: 10px"
+                  ></i
+                  >Pressure Testing
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- Why Our Pricing Is Transparent -->
+        <section style="margin-top: 80px">
+          <div class="section-header reveal">
+            <span class="pill-badge">Honest Pricing</span>
+            <h2>No Hidden Charges. No Surprise Bills.</h2>
+            <p>
+              We believe every customer deserves complete transparency before
+              any work begins. That's why we provide upfront pricing, explain
+              every repair, and never add unexpected fees after the job is
+              complete.
+            </p>
+          </div>
+
+          <div class="grid-2 reveal">
+            <div class="hero-shell">
+              <h3 style="margin-bottom: 25px">Every Service Visit Includes</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 18px">
+                <div>
+                  <strong>✔ Professional Inspection</strong>
+                  <p style="color: var(--slate-light)">
+                    Complete diagnosis of the plumbing issue before any work
+                    starts.
+                  </p>
+                </div>
+
+                <div>
+                  <strong>✔ Upfront Written Quote</strong>
+                  <p style="color: var(--slate-light)">
+                    Know exactly what you'll pay before we begin.
+                  </p>
+                </div>
+
+                <div>
+                  <strong>✔ Quality Parts</strong>
+                  <p style="color: var(--slate-light)">
+                    We only install trusted, long-lasting plumbing components.
+                  </p>
+                </div>
+
+                <div>
+                  <strong>✔ Clean Work Area</strong>
+                  <p style="color: var(--slate-light)">
+                    We protect your home and clean everything before we leave.
+                  </p>
+                </div>
+
+                <div>
+                  <strong>✔ Warranty Included</strong>
+                  <p style="color: var(--slate-light)">
+                    Our workmanship is backed by a comprehensive labor warranty.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <div class="card-body">
+                <h3 style="margin-bottom: 25px">
+                  Why Customers Choose Pipe Patrol
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 20px">
+                  <div style="display: flex; gap: 15px">
+                    <div class="feature-icon">
+                      <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                      <h4>Fast Response</h4>
+                      <p style="color: var(--slate-light)">
+                        Same-day appointments and emergency service available
+                        24/7.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 15px">
+                    <div class="feature-icon">
+                      <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div>
+                      <h4>Licensed Experts</h4>
+                      <p style="color: var(--slate-light)">
+                        Experienced plumbers trained to solve every plumbing
+                        challenge.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 15px">
+                    <div class="feature-icon">
+                      <i class="fa-solid fa-comments"></i>
+                    </div>
+
+                    <div>
+                      <h4>Clear Communication</h4>
+                      <p style="color: var(--slate-light)">
+                        We explain every repair in simple language so you always
+                        know what's happening.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 15px">
+                    <div class="feature-icon">
+                      <i class="fa-solid fa-medal"></i>
+                    </div>
+
+                    <div>
+                      <h4>Guaranteed Quality</h4>
+                      <p style="color: var(--slate-light)">
+                        Every repair is completed to the highest industry
+                        standards.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 3: INTERACTIVE COST ESTIMATOR (`#estimator`)                   -->
+    <!-- =================================================================== -->
+    <div id="estimator" class="page-view">
+      <section class="section-padding bg-white">
+        <div class="container" style="max-width: 900px">
+          <div class="section-header reveal">
+            <span class="pill-badge">Cost Calculator</span>
+            <h2>Interactive Cost Estimator</h2>
+            <p>
+              Get an instant ballpark calculation before dispatching a plumber.
+            </p>
+          </div>
+
+          <div class="calc-box reveal">
+            <div style="margin-bottom: 25px">
+              <label style="font-weight: 700">1. Select Issue Category</label>
+              <div class="calc-options">
+                <div
+                  class="calc-pill active"
+                  onclick="setCalc('issue', 'drain', this)"
+                >
+                  Drain / Clog
+                </div>
+                <div
+                  class="calc-pill"
+                  onclick="setCalc('issue', 'heater', this)"
+                >
+                  Water Heater
+                </div>
+                <div class="calc-pill" onclick="setCalc('issue', 'leak', this)">
+                  Pipe Leak
+                </div>
+                <div
+                  class="calc-pill"
+                  onclick="setCalc('issue', 'burst', this)"
+                >
+                  Burst Emergency
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 25px">
+              <label style="font-weight: 700">2. Property Type</label>
+              <div class="calc-options">
+                <div
+                  class="calc-pill active"
+                  onclick="setCalc('prop', 'house', this)"
+                >
+                  Single Family Home
+                </div>
+                <div class="calc-pill" onclick="setCalc('prop', 'condo', this)">
+                  Condo / Apartment
+                </div>
+                <div
+                  class="calc-pill"
+                  onclick="setCalc('prop', 'commercial', this)"
+                >
+                  Commercial Building
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 25px">
+              <label style="font-weight: 700">3. Dispatch Urgency</label>
+              <div class="calc-options">
+                <div
+                  class="calc-pill active"
+                  onclick="setCalc('urgency', 'standard', this)"
+                >
+                  Scheduled (Next 48 Hours)
+                </div>
+                <div
+                  class="calc-pill"
+                  onclick="setCalc('urgency', 'sameday', this)"
+                >
+                  Same Day Priority
+                </div>
+                <div
+                  class="calc-pill"
+                  onclick="setCalc('urgency', 'emergency', this)"
+                >
+                  24/7 Immediate Emergency
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                background: var(--navy-dark);
+                color: white;
+                padding: 30px;
+                border-radius: var(--radius-md);
+                margin-top: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+              "
+            >
+              <div>
+                <span style="color: #94a3b8; font-size: 0.9rem"
+                  >Estimated Price Range:</span
+                >
+                <div
+                  style="
+                    font-size: 3.2rem;
+                    font-weight: 800;
+                    color: var(--orange-bright);
+                  "
+                >
+                  $<span id="calcTotal">149</span>
+                </div>
+              </div>
+              <button
+                class="btn btn-orange"
+                onclick="openBookingModal('Calculator Locked Estimate')"
+              >
+                Lock In This Estimate
+              </button>
+            </div>
+          </div>
+
+          <div class="grid-2 reveal" style="margin-top: 36px">
+            <div class="info-card">
+              <h4>How the estimate works</h4>
+              <p>
+                Our quick estimator uses issue type, property size, and urgency
+                to give a realistic market range so you can plan before the
+                truck rolls out.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>What changes the price</h4>
+              <p>
+                Commercial spaces, hidden access issues, and emergency response
+                often increase the visit scope and final bill. We always confirm
+                before work begins.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 4: 24/7 EMERGENCY DISPATCH (`#emergency`)                     -->
+    <!-- =================================================================== -->
+    <div id="emergency" class="page-view">
+      <section class="section-padding bg-cream">
+        <div class="container">
+          <div class="section-header reveal">
+            <span
+              class="pill-badge"
+              style="background: #fee2e2; color: #dc2626; border-color: #fca5a5"
+              >Immediate Action</span
+            >
+            <h2>24/7 Emergency Plumber Dispatch</h2>
+            <p>Don't let standing water destroy your floors and foundation.</p>
+          </div>
+
+          <div
+            class="hero-shell reveal"
+            style="
+              margin-bottom: 40px;
+              background: linear-gradient(135deg, #7c2d12, var(--orange-alert));
+              color: white;
+              border: none;
+            "
+          >
+            <i
+              class="fa-solid fa-bell-concierge"
+              style="font-size: 3.5rem; margin-bottom: 15px"
+            ></i>
+            <h2 style="font-size: 2.5rem; font-weight: 800">
+              Emergency Hotline: (800) 555-PIPE
+            </h2>
+            <p style="font-size: 1.1rem; margin-top: 10px">
+              Dispatch Center Status:
+              <span style="color: #4ade80; font-weight: 800"
+                >ONLINE (14 Units Mobile)</span
+              >
+            </p>
+            <button
+              class="btn btn-orange"
+              style="
+                margin-top: 25px;
+                background: white;
+                color: var(--orange-alert);
+              "
+              onclick="openBookingModal('24/7 Emergency Dispatch')"
+            >
+              Request Immediate Dispatch
+            </button>
+          </div>
+
+          <div class="grid-4 reveal" style="margin-bottom: 36px">
+            <div class="photo-card" style="padding: 25px; text-align: center">
+              <div
+                style="
+                  width: 40px;
+                  height: 40px;
+                  background: var(--blue-light);
+                  color: var(--blue-accent);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: 800;
+                  margin: 0 auto 15px;
+                "
+              >
+                1
+              </div>
+              <h4>Shut Off Main Valve</h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--slate-light);
+                  margin-top: 8px;
+                "
+              >
+                Locate your main water shut-off handle (usually near meter) and
+                turn clockwise.
+              </p>
+            </div>
+
+            <div class="photo-card" style="padding: 25px; text-align: center">
+              <div
+                style="
+                  width: 40px;
+                  height: 40px;
+                  background: var(--blue-light);
+                  color: var(--blue-accent);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: 800;
+                  margin: 0 auto 15px;
+                "
+              >
+                2
+              </div>
+              <h4>Drain Faucets</h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--slate-light);
+                  margin-top: 8px;
+                "
+              >
+                Open lowest sinks and outdoor spigots to drain remaining pipe
+                pressure.
+              </p>
+            </div>
+
+            <div class="photo-card" style="padding: 25px; text-align: center">
+              <div
+                style="
+                  width: 40px;
+                  height: 40px;
+                  background: var(--blue-light);
+                  color: var(--blue-accent);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: 800;
+                  margin: 0 auto 15px;
+                "
+              >
+                3
+              </div>
+              <h4>Shut Off Power</h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--slate-light);
+                  margin-top: 8px;
+                "
+              >
+                If water is near electrical outlets or breaker box, turn off
+                main breaker safely.
+              </p>
+            </div>
+
+            <div class="photo-card" style="padding: 25px; text-align: center">
+              <div
+                style="
+                  width: 40px;
+                  height: 40px;
+                  background: var(--blue-light);
+                  color: var(--blue-accent);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: 800;
+                  margin: 0 auto 15px;
+                "
+              >
+                4
+              </div>
+              <h4>Document Damage</h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--slate-light);
+                  margin-top: 8px;
+                "
+              >
+                Take photos of standing water and damaged property for insurance
+                claims.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-2 reveal">
+            <div class="info-card">
+              <h4>Why we respond fast</h4>
+              <p>
+                We maintain a live dispatch map and a stocked fleet so crews can
+                reach burst pipes, sewage backups, and major leaks with minimum
+                delay.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>When to call now</h4>
+              <p>
+                Any active leak that is spreading, water near electrical
+                systems, or sewage backup should be treated as an emergency and
+                handled immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 24/7 Emergency Dispatch System -->
+        <section class="section-padding bg-white" style="padding: 70px 0">
+          <div class="container">
+            <div class="section-header reveal">
+              <span
+                class="pill-badge"
+                style="
+                  background: #fee2e2;
+                  color: #dc2626;
+                  border-color: #fca5a5;
+                "
+              >
+                Live Dispatch
+              </span>
+
+              <h2>Our 24/7 Emergency Response System</h2>
+
+              <p>
+                Every emergency call is immediately routed through our dispatch
+                center, allowing us to assign the closest available licensed
+                technician and reduce response times.
+              </p>
+            </div>
+
+            <div class="grid-4 reveal">
+              <div class="feature-card" style="text-align: center">
+                <div class="feature-icon" style="margin: 0 auto 20px">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </div>
+
+                <h4>Step 1</h4>
+
+                <h3 style="margin: 10px 0">Emergency Call</h3>
+
+                <p>
+                  Our operators answer your call 24 hours a day and gather the
+                  essential details of your plumbing emergency.
+                </p>
+              </div>
+
+              <div class="feature-card" style="text-align: center">
+                <div class="feature-icon" style="margin: 0 auto 20px">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <h4>Step 2</h4>
+
+                <h3 style="margin: 10px 0">Nearest Technician</h3>
+
+                <p>
+                  Your request is assigned to the closest available emergency
+                  plumber with the correct equipment.
+                </p>
+              </div>
+
+              <div class="feature-card" style="text-align: center">
+                <div class="feature-icon" style="margin: 0 auto 20px">
+                  <i class="fa-solid fa-truck-fast"></i>
+                </div>
+
+                <h4>Step 3</h4>
+
+                <h3 style="margin: 10px 0">Rapid Dispatch</h3>
+
+                <p>
+                  Our technician begins travelling immediately while our office
+                  keeps you updated on arrival time.
+                </p>
+              </div>
+
+              <div class="feature-card" style="text-align: center">
+                <div class="feature-icon" style="margin: 0 auto 20px">
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+
+                <h4>Step 4</h4>
+
+                <h3 style="margin: 10px 0">Repair Begins</h3>
+
+                <p>
+                  After inspection and approval of the quote, repairs begin
+                  immediately to minimise damage.
+                </p>
+              </div>
+            </div>
+
+            <div class="hero-shell reveal" style="margin-top: 60px">
+              <div class="grid-2">
+                <div>
+                  <h3 style="margin-bottom: 20px">
+                    Emergency Vehicles Fully Stocked
+                  </h3>
+
+                  <p style="color: var(--slate-light); margin-bottom: 25px">
+                    Every emergency truck carries hundreds of plumbing parts,
+                    professional leak detection equipment, drain cleaning
+                    machines, pipe repair materials, valves, fittings, water
+                    heaters, and specialist tools so many repairs can be
+                    completed during the first visit.
+                  </p>
+
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(2, 1fr);
+                      gap: 15px;
+                    "
+                  >
+                    <div class="info-card">
+                      <h4>22 Min</h4>
+                      <p>Average Response</p>
+                    </div>
+
+                    <div class="info-card">
+                      <h4>24/7</h4>
+                      <p>Always Available</p>
+                    </div>
+
+                    <div class="info-card">
+                      <h4>14</h4>
+                      <p>Mobile Units</p>
+                    </div>
+
+                    <div class="info-card">
+                      <h4>365 Days</h4>
+                      <p>Emergency Coverage</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
+                    alt="Emergency Dispatch Team"
+                    style="
+                      border-radius: var(--radius-lg);
+                      box-shadow: var(--shadow-hover);
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 5: LICENSING & WARRANTY (ABOUT) (`#about`)                     -->
+    <!-- =================================================================== -->
+    <div id="about" class="page-view">
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="grid-2 reveal" style="margin-bottom: 60px">
             <div>
-              <span style="color:#94a3b8; font-size:0.9rem;">Estimated Price Range:</span>
-              <div style="font-size:3.2rem; font-weight:800; color:var(--orange-bright);">$<span id="calcTotal">149</span></div>
-            </div>
-            <button class="btn btn-orange" onclick="openBookingModal('Calculator Locked Estimate')">Lock In This Estimate</button>
-          </div>
-        </div>
-
-        <div class="grid-2 reveal" style="margin-top:36px;">
-          <div class="info-card">
-            <h4>How the estimate works</h4>
-            <p>Our quick estimator uses issue type, property size, and urgency to give a realistic market range so you can plan before the truck rolls out.</p>
-          </div>
-          <div class="info-card">
-            <h4>What changes the price</h4>
-            <p>Commercial spaces, hidden access issues, and emergency response often increase the visit scope and final bill. We always confirm before work begins.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
-  <!-- =================================================================== -->
-  <!-- PAGE 4: 24/7 EMERGENCY DISPATCH (`#emergency`)                     -->
-  <!-- =================================================================== -->
-  <div id="emergency" class="page-view">
-    <section class="section-padding bg-cream">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="pill-badge" style="background:#fee2e2; color:#dc2626; border-color:#fca5a5;">Immediate Action</span>
-          <h2>24/7 Emergency Plumber Dispatch</h2>
-          <p>Don't let standing water destroy your floors and foundation.</p>
-        </div>
-
-        <div class="hero-shell reveal" style="margin-bottom:40px; background:linear-gradient(135deg, #7c2d12, var(--orange-alert)); color:white; border:none;">
-          <i class="fa-solid fa-bell-concierge" style="font-size:3.5rem; margin-bottom:15px;"></i>
-          <h2 style="font-size:2.5rem; font-weight:800;">Emergency Hotline: (800) 555-PIPE</h2>
-          <p style="font-size:1.1rem; margin-top:10px;">Dispatch Center Status: <span style="color:#4ade80; font-weight:800;">ONLINE (14 Units Mobile)</span></p>
-          <button class="btn btn-orange" style="margin-top:25px; background:white; color:var(--orange-alert);" onclick="openBookingModal('24/7 Emergency Dispatch')">Request Immediate Dispatch</button>
-        </div>
-
-        <div class="grid-4 reveal" style="margin-bottom:36px;">
-          <div class="photo-card" style="padding:25px; text-align:center;">
-            <div style="width:40px; height:40px; background:var(--blue-light); color:var(--blue-accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; margin:0 auto 15px;">1</div>
-            <h4>Shut Off Main Valve</h4>
-            <p style="font-size:0.85rem; color:var(--slate-light); margin-top:8px;">Locate your main water shut-off handle (usually near meter) and turn clockwise.</p>
-          </div>
-
-          <div class="photo-card" style="padding:25px; text-align:center;">
-            <div style="width:40px; height:40px; background:var(--blue-light); color:var(--blue-accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; margin:0 auto 15px;">2</div>
-            <h4>Drain Faucets</h4>
-            <p style="font-size:0.85rem; color:var(--slate-light); margin-top:8px;">Open lowest sinks and outdoor spigots to drain remaining pipe pressure.</p>
-          </div>
-
-          <div class="photo-card" style="padding:25px; text-align:center;">
-            <div style="width:40px; height:40px; background:var(--blue-light); color:var(--blue-accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; margin:0 auto 15px;">3</div>
-            <h4>Shut Off Power</h4>
-            <p style="font-size:0.85rem; color:var(--slate-light); margin-top:8px;">If water is near electrical outlets or breaker box, turn off main breaker safely.</p>
-          </div>
-
-          <div class="photo-card" style="padding:25px; text-align:center;">
-            <div style="width:40px; height:40px; background:var(--blue-light); color:var(--blue-accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; margin:0 auto 15px;">4</div>
-            <h4>Document Damage</h4>
-            <p style="font-size:0.85rem; color:var(--slate-light); margin-top:8px;">Take photos of standing water and damaged property for insurance claims.</p>
-          </div>
-        </div>
-
-        <div class="grid-2 reveal">
-          <div class="info-card">
-            <h4>Why we respond fast</h4>
-            <p>We maintain a live dispatch map and a stocked fleet so crews can reach burst pipes, sewage backups, and major leaks with minimum delay.</p>
-          </div>
-          <div class="info-card">
-            <h4>When to call now</h4>
-            <p>Any active leak that is spreading, water near electrical systems, or sewage backup should be treated as an emergency and handled immediately.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
-  <!-- =================================================================== -->
-  <!-- PAGE 5: LICENSING & WARRANTY (ABOUT) (`#about`)                     -->
-  <!-- =================================================================== -->
-  <div id="about" class="page-view">
-    <section class="section-padding bg-white">
-      <div class="container">
-        <div class="grid-2 reveal" style="margin-bottom:60px;">
-          <div>
-            <span class="pill-badge">Master Plumbers</span>
-            <h2 style="font-size:2.5rem; margin:15px 0;">Built On 18 Years Of Plumbing Excellence</h2>
-            <p style="color:var(--slate-body); margin-bottom:20px;">Pipe Patrol was founded in 2006 to eliminate the shady practices, unreliable pricing, and poor workmanship plagueing the plumbing industry.</p>
-            <div style="display:flex; gap:20px; flex-wrap:wrap;">
-              <div>
-                <strong style="font-size:2rem; color:var(--blue-accent);">Master License</strong>
-                <p style="color:var(--slate-light); font-size:0.85rem;">#MP-940211 Verified</p>
-              </div>
-              <div>
-                <strong style="font-size:2rem; color:var(--blue-accent);">$2,000,000</strong>
-                <p style="color:var(--slate-light); font-size:0.85rem;">Liability Coverage</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=800&q=80" style="border-radius:var(--radius-lg); box-shadow:var(--shadow-hover);" alt="Plumbing Team">
-          </div>
-        </div>
-
-        <div class="stats-grid reveal" style="margin-bottom:40px;">
-          <div class="stat-card"><strong>18+</strong><span>Years Serving Local Homes</span></div>
-          <div class="stat-card"><strong>4.9/5</strong><span>Average Client Rating</span></div>
-          <div class="stat-card"><strong>97%</strong><span>Repeat Customers</span></div>
-          <div class="stat-card"><strong>1Y</strong><span>Warranty on Labor</span></div>
-        </div>
-
-        <div class="milestone-grid reveal" style="margin-bottom:40px;">
-          <div class="milestone-card"><h4>2006</h4><p>Company founded with a promise of honest pricing.</p></div>
-          <div class="milestone-card"><h4>2014</h4><p>Expanded into commercial and multi-unit plumbing support.</p></div>
-          <div class="milestone-card"><h4>2020</h4><p>Added hydro-jetting and advanced leak detection equipment.</p></div>
-          <div class="milestone-card"><h4>2024</h4><p>Launched 24/7 digital dispatch and live response tracking.</p></div>
-        </div>
-
-        <h3 style="text-align:center; margin-bottom:30px;">Meet Our Master Technicians</h3>
-        <div class="grid-3 reveal">
-          <div class="photo-card" style="text-align:center;">
-            <div class="card-img-wrap" style="height:240px;">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Master Plumber">
-            </div>
-            <div class="card-body">
-              <h4>Robert Vance</h4>
-              <p style="color:var(--slate-light); font-size:0.85rem;">Founder & Master Plumber</p>
-            </div>
-          </div>
-
-          <div class="photo-card" style="text-align:center;">
-            <div class="card-img-wrap" style="height:240px;">
-              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Sewer Tech">
-            </div>
-            <div class="card-body">
-              <h4>Marcus Thorne</h4>
-              <p style="color:var(--slate-light); font-size:0.85rem;">Commercial Sewer Specialist</p>
-            </div>
-          </div>
-
-          <div class="photo-card" style="text-align:center;">
-            <div class="card-img-wrap" style="height:240px;">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Service Desk">
-            </div>
-            <div class="card-body">
-              <h4>Sarah Miller</h4>
-              <p style="color:var(--slate-light); font-size:0.85rem;">Dispatch Desk Manager</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
-  <!-- =================================================================== -->
-  <!-- PAGE 6: CONTACT & SERVICE DESK (`#contact`)                        -->
-  <!-- =================================================================== -->
-  <div id="contact" class="page-view">
-    <section class="section-padding bg-cream">
-      <div class="container">
-        <div class="grid-2 reveal">
-          <div>
-            <span class="pill-badge">Service Desk</span>
-            <h2 style="font-size:2.5rem; margin:15px 0;">Contact Pipe Patrol Service Desk</h2>
-            <p style="color:var(--slate-body); margin-bottom:30px;">Dispatch operators standing by 24/7/365 to take your call or online booking.</p>
-
-            <div style="display:flex; flex-direction:column; gap:20px;">
-              <div style="display:flex; gap:15px; align-items:center;">
-                <i class="fa-solid fa-phone" style="width:45px; height:45px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--orange-bright); box-shadow:var(--shadow-soft);"></i>
+              <span class="pill-badge">Master Plumbers</span>
+              <h2 style="font-size: 2.5rem; margin: 15px 0">
+                Built On 18 Years Of Plumbing Excellence
+              </h2>
+              <p style="color: var(--slate-body); margin-bottom: 20px">
+                Pipe Patrol was founded in 2006 to eliminate the shady
+                practices, unreliable pricing, and poor workmanship plagueing
+                the plumbing industry.
+              </p>
+              <div style="display: flex; gap: 20px; flex-wrap: wrap">
                 <div>
-                  <strong>Dispatch Hotline</strong>
-                  <p style="color:var(--slate-light); font-size:0.9rem;">(800) 555-PIPE</p>
+                  <strong style="font-size: 2rem; color: var(--blue-accent)"
+                    >Master License</strong
+                  >
+                  <p style="color: var(--slate-light); font-size: 0.85rem">
+                    #MP-940211 Verified
+                  </p>
                 </div>
-              </div>
-              <div style="display:flex; gap:15px; align-items:center;">
-                <i class="fa-solid fa-envelope" style="width:45px; height:45px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--blue-accent); box-shadow:var(--shadow-soft);"></i>
                 <div>
-                  <strong>Support Email</strong>
-                  <p style="color:var(--slate-light); font-size:0.9rem;">dispatch@Pipe Patrolplumbing.com</p>
+                  <strong style="font-size: 2rem; color: var(--blue-accent)"
+                    >$2,000,000</strong
+                  >
+                  <p style="color: var(--slate-light); font-size: 0.85rem">
+                    Liability Coverage
+                  </p>
                 </div>
               </div>
             </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=800&q=80"
+                style="
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow-hover);
+                "
+                alt="Plumbing Team"
+              />
+            </div>
           </div>
 
-          <div class="photo-card" style="padding:40px;">
-            <h3>Schedule A Technician</h3>
-            <form onsubmit="handleForm(event)" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
-              <input type="text" placeholder="Full Name" required style="padding:14px; border-radius:10px; border:1px solid var(--border-color); outline:none;">
-              <input type="tel" placeholder="Phone Number" required style="padding:14px; border-radius:10px; border:1px solid var(--border-color); outline:none;">
-              <select style="padding:14px; border-radius:10px; border:1px solid var(--border-color); outline:none;">
-                <option>Select Plumbing Issue</option>
-                <option>Drain Clog / Hydro-Jetting</option>
-                <option>Water Heater Issue</option>
-                <option>Pipe Leak / Burst Emergency</option>
-                <option>Toilet or Faucet Repair</option>
-              </select>
-              <textarea placeholder="Describe issue details..." rows="3" style="padding:14px; border-radius:10px; border:1px solid var(--border-color); outline:none;"></textarea>
-              <button class="btn btn-orange" type="submit">Submit Request</button>
-            </form>
+          <div class="stats-grid reveal" style="margin-bottom: 40px">
+            <div class="stat-card">
+              <strong>18+</strong><span>Years Serving Local Homes</span>
+            </div>
+            <div class="stat-card">
+              <strong>4.9/5</strong><span>Average Client Rating</span>
+            </div>
+            <div class="stat-card">
+              <strong>97%</strong><span>Repeat Customers</span>
+            </div>
+            <div class="stat-card">
+              <strong>1Y</strong><span>Warranty on Labor</span>
+            </div>
+          </div>
+
+          <div class="milestone-grid reveal" style="margin-bottom: 40px">
+            <div class="milestone-card">
+              <h4>2006</h4>
+              <p>Company founded with a promise of honest pricing.</p>
+            </div>
+            <div class="milestone-card">
+              <h4>2014</h4>
+              <p>Expanded into commercial and multi-unit plumbing support.</p>
+            </div>
+            <div class="milestone-card">
+              <h4>2020</h4>
+              <p>Added hydro-jetting and advanced leak detection equipment.</p>
+            </div>
+            <div class="milestone-card">
+              <h4>2024</h4>
+              <p>Launched 24/7 digital dispatch and live response tracking.</p>
+            </div>
+          </div>
+
+          <h3 style="text-align: center; margin-bottom: 30px">
+            Meet Our Master Technicians
+          </h3>
+          <div class="grid-3 reveal">
+            <div class="photo-card" style="text-align: center">
+              <div class="card-img-wrap" style="height: 240px">
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+                  alt="Master Plumber"
+                />
+              </div>
+              <div class="card-body">
+                <h4>Robert Vance</h4>
+                <p style="color: var(--slate-light); font-size: 0.85rem">
+                  Founder & Master Plumber
+                </p>
+              </div>
+            </div>
+
+            <div class="photo-card" style="text-align: center">
+              <div class="card-img-wrap" style="height: 240px">
+                <img
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80"
+                  alt="Sewer Tech"
+                />
+              </div>
+              <div class="card-body">
+                <h4>Marcus Thorne</h4>
+                <p style="color: var(--slate-light); font-size: 0.85rem">
+                  Commercial Sewer Specialist
+                </p>
+              </div>
+            </div>
+
+            <div class="photo-card" style="text-align: center">
+              <div class="card-img-wrap" style="height: 240px">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                  alt="Service Desk"
+                />
+              </div>
+              <div class="card-body">
+                <h4>Sarah Miller</h4>
+                <p style="color: var(--slate-light); font-size: 0.85rem">
+                  Dispatch Desk Manager
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+      <!-- Licensing & Trust -->
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="pill-badge">Licensed & Trusted</span>
+            <h2>Your Home Is In Safe Hands</h2>
+            <p>
+              When you invite a plumber into your home, you deserve complete
+              confidence. Every member of our team is qualified, insured, and
+              committed to delivering safe, professional workmanship on every
+              visit.
+            </p>
+          </div>
 
-        <div class="grid-3 reveal" style="margin-top:30px;">
-          <div class="info-card"><h4>Business Hours</h4><p>Open 24 hours a day, 7 days a week for urgent and scheduled service.</p></div>
-          <div class="info-card"><h4>Response Window</h4><p>Most urgent calls receive a dispatch confirmation within minutes of arrival.</p></div>
-          <div class="info-card"><h4>Visit Notes</h4><p>We document the work, provide warranty details, and leave your property clean.</p></div>
+          <div class="grid-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+
+              <h4>Licensed Plumbers</h4>
+
+              <p>
+                Every technician is fully licensed and trained to perform
+                plumbing installations, repairs, and inspections according to
+                local building regulations.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+
+              <h4>Fully Insured</h4>
+
+              <p>
+                We carry comprehensive public liability insurance, giving
+                homeowners complete peace of mind throughout every project.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-user-check"></i>
+              </div>
+
+              <h4>Background Checked</h4>
+
+              <p>
+                Our plumbers are carefully vetted, professionally trained, and
+                committed to providing respectful customer service.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-award"></i>
+              </div>
+
+              <h4>Workmanship Guarantee</h4>
+
+              <p>
+                Every repair and installation is backed by our workmanship
+                guarantee because your satisfaction always comes first.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-shell reveal" style="margin-top: 60px">
+            <div class="grid-2">
+              <div>
+                <h3 style="margin-bottom: 20px">
+                  Why Homeowners Continue Choosing Pipe Patrol
+                </h3>
+
+                <p style="color: var(--slate-light); margin-bottom: 25px">
+                  Our reputation has been built on honest advice, transparent
+                  pricing, quality workmanship, and dependable customer service.
+                  We don't believe in unnecessary repairs—we recommend only the
+                  solutions your home truly needs.
+                </p>
+
+                <ul style="display: flex; flex-direction: column; gap: 14px">
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i>
+                    Licensed & Certified Professionals
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i>
+                    Upfront Pricing Before Work Begins
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i>
+                    Guaranteed Parts & Labour
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i>
+                    Clean & Respectful Service
+                  </li>
+
+                  <li>
+                    <i
+                      class="fa-solid fa-circle-check"
+                      style="color: var(--blue-accent); margin-right: 10px"
+                    ></i>
+                    Thousands of Happy Customers
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="grid-2">
+                  <div class="stat-card">
+                    <strong>18+</strong>
+                    <span>Years Experience</span>
+                  </div>
+
+                  <div class="stat-card">
+                    <strong>25K+</strong>
+                    <span>Projects Completed</span>
+                  </div>
+
+                  <div class="stat-card">
+                    <strong>4.9★</strong>
+                    <span>Average Rating</span>
+                  </div>
+
+                  <div class="stat-card">
+                    <strong>100%</strong>
+                    <span>Customer Focused</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-
-
-  <!-- BOOKING MODAL -->
-  <div class="modal-overlay" id="bookingModal">
-    <div class="modal-card">
-      <span style="position:absolute; top:20px; right:20px; font-size:1.6rem; cursor:pointer;" onclick="closeBookingModal()">&times;</span>
-      <h3>Dispatch A Pipe Patrol Plumber</h3>
-      <p style="color:var(--slate-light); font-size:0.9rem; margin-bottom:20px;">Immediate technician scheduling.</p>
-
-      <form onsubmit="handleModalSubmit(event)" style="display:flex; flex-direction:column; gap:15px;">
-        <input type="text" id="modalServiceType" readonly style="padding:12px; border-radius:8px; border:1px solid var(--border-color); background:#f1f5f9; font-weight:700;">
-        <input type="text" placeholder="Your Name" required style="padding:12px; border-radius:8px; border:1px solid var(--border-color);">
-        <input type="tel" placeholder="Phone Number" required style="padding:12px; border-radius:8px; border:1px solid var(--border-color);">
-        <input type="text" placeholder="Service Street Address" required style="padding:12px; border-radius:8px; border:1px solid var(--border-color);">
-        <button class="btn btn-orange" type="submit">Confirm Dispatch</button>
-      </form>
+      </section>
     </div>
-  </div>
 
+    <!-- =================================================================== -->
+    <!-- PAGE 6: CONTACT & SERVICE DESK (`#contact`)                        -->
+    <!-- =================================================================== -->
+    <div id="contact" class="page-view">
+      <section class="section-padding bg-cream">
+        <div class="container">
+          <div class="grid-2 reveal">
+            <div>
+              <span class="pill-badge">Service Desk</span>
+              <h2 style="font-size: 2.5rem; margin: 15px 0">
+                Contact Pipe Patrol Service Desk
+              </h2>
+              <p style="color: var(--slate-body); margin-bottom: 30px">
+                Dispatch operators standing by 24/7/365 to take your call or
+                online booking.
+              </p>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="grid-4 footer-col" style="margin-bottom:50px;">
-        <div>
-          <div class="logo" style="color:white; margin-bottom:15px;">
-            <div class="logo-badge"><i class="fa-solid fa-faucet-drip"></i></div>
-            <span>Pipe Patrol</span>
+              <div style="display: flex; flex-direction: column; gap: 20px">
+                <div style="display: flex; gap: 15px; align-items: center">
+                  <i
+                    class="fa-solid fa-phone"
+                    style="
+                      width: 45px;
+                      height: 45px;
+                      background: white;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--orange-bright);
+                      box-shadow: var(--shadow-soft);
+                    "
+                  ></i>
+                  <div>
+                    <strong>Dispatch Hotline</strong>
+                    <p style="color: var(--slate-light); font-size: 0.9rem">
+                      (800) 555-PIPE
+                    </p>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 15px; align-items: center">
+                  <i
+                    class="fa-solid fa-envelope"
+                    style="
+                      width: 45px;
+                      height: 45px;
+                      background: white;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--blue-accent);
+                      box-shadow: var(--shadow-soft);
+                    "
+                  ></i>
+                  <div>
+                    <strong>Support Email</strong>
+                    <p style="color: var(--slate-light); font-size: 0.9rem">
+                      dispatch@Pipe Patrolplumbing.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="photo-card" style="padding: 40px">
+              <h3>Schedule A Technician</h3>
+              <form
+                onsubmit="handleForm(event)"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 15px;
+                  margin-top: 20px;
+                "
+              >
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                  style="
+                    padding: 14px;
+                    border-radius: 10px;
+                    border: 1px solid var(--border-color);
+                    outline: none;
+                  "
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  style="
+                    padding: 14px;
+                    border-radius: 10px;
+                    border: 1px solid var(--border-color);
+                    outline: none;
+                  "
+                />
+                <select
+                  style="
+                    padding: 14px;
+                    border-radius: 10px;
+                    border: 1px solid var(--border-color);
+                    outline: none;
+                  "
+                >
+                  <option>Select Plumbing Issue</option>
+                  <option>Drain Clog / Hydro-Jetting</option>
+                  <option>Water Heater Issue</option>
+                  <option>Pipe Leak / Burst Emergency</option>
+                  <option>Toilet or Faucet Repair</option>
+                </select>
+                <textarea
+                  placeholder="Describe issue details..."
+                  rows="3"
+                  style="
+                    padding: 14px;
+                    border-radius: 10px;
+                    border: 1px solid var(--border-color);
+                    outline: none;
+                  "
+                ></textarea>
+                <button class="btn btn-orange" type="submit">
+                  Submit Request
+                </button>
+              </form>
+            </div>
           </div>
-          <p style="color:#94a3b8; font-size:0.9rem;">24/7 Licensed Master Plumbers. Upfront flat rate pricing with 100% labor warranty.</p>
+
+          <div class="grid-3 reveal" style="margin-top: 30px">
+            <div class="info-card">
+              <h4>Business Hours</h4>
+              <p>
+                Open 24 hours a day, 7 days a week for urgent and scheduled
+                service.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>Response Window</h4>
+              <p>
+                Most urgent calls receive a dispatch confirmation within minutes
+                of arrival.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>Visit Notes</h4>
+              <p>
+                We document the work, provide warranty details, and leave your
+                property clean.
+              </p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#services" onclick="switchPage('services')">Drain Cleaning</a></li>
-            <li><a href="#services" onclick="switchPage('services')">Water Heater Install</a></li>
-            <li><a href="#services" onclick="switchPage('services')">Leak Detection</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="#estimator" onclick="switchPage('estimator')">Cost Estimator</a></li>
-            <li><a href="#emergency" onclick="switchPage('emergency')">24/7 Emergency</a></li>
-            <li><a href="#about" onclick="switchPage('about')">Licensing & Warranty</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Emergency Support</h4>
-          <p style="color:#94a3b8; font-size:0.85rem;">Line 1: (800) 555-PIPE</p>
-          <p style="color:#94a3b8; font-size:0.85rem; margin-top:5px;">24/7/365 On-Call Dispatch</p>
-        </div>
-      </div>
-      <div style="text-align:center; border-top:1px solid #1e293b; padding-top:25px; color:#94a3b8; font-size:0.85rem;">
-        &copy; 2024 Pipe Patrol Plumbing Services LLC. License #MP-940211. All rights reserved.
+      </section>
+    </div>
+
+    <!-- BOOKING MODAL -->
+    <div class="modal-overlay" id="bookingModal">
+      <div class="modal-card">
+        <span
+          style="
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.6rem;
+            cursor: pointer;
+          "
+          onclick="closeBookingModal()"
+          >&times;</span
+        >
+        <h3>Dispatch A Pipe Patrol Plumber</h3>
+        <p
+          style="
+            color: var(--slate-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+          "
+        >
+          Immediate technician scheduling.
+        </p>
+
+        <form
+          onsubmit="handleModalSubmit(event)"
+          style="display: flex; flex-direction: column; gap: 15px"
+        >
+          <input
+            type="text"
+            id="modalServiceType"
+            readonly
+            style="
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border-color);
+              background: #f1f5f9;
+              font-weight: 700;
+            "
+          />
+          <input
+            type="text"
+            placeholder="Your Name"
+            required
+            style="
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border-color);
+            "
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            required
+            style="
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border-color);
+            "
+          />
+          <input
+            type="text"
+            placeholder="Service Street Address"
+            required
+            style="
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border-color);
+            "
+          />
+          <button class="btn btn-orange" type="submit">Confirm Dispatch</button>
+        </form>
       </div>
     </div>
-  </footer>
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-</body>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="grid-4 footer-col" style="margin-bottom: 50px">
+          <div>
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <div class="logo-badge">
+                <i class="fa-solid fa-faucet-drip"></i>
+              </div>
+              <span>Pipe Patrol</span>
+            </div>
+            <p style="color: #94a3b8; font-size: 0.9rem">
+              24/7 Licensed Master Plumbers. Upfront flat rate pricing with 100%
+              labor warranty.
+            </p>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li>
+                <a href="#services" onclick="switchPage('services')"
+                  >Drain Cleaning</a
+                >
+              </li>
+              <li>
+                <a href="#services" onclick="switchPage('services')"
+                  >Water Heater Install</a
+                >
+              </li>
+              <li>
+                <a href="#services" onclick="switchPage('services')"
+                  >Leak Detection</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Pages</h4>
+            <ul>
+              <li>
+                <a href="#estimator" onclick="switchPage('estimator')"
+                  >Cost Estimator</a
+                >
+              </li>
+              <li>
+                <a href="#emergency" onclick="switchPage('emergency')"
+                  >24/7 Emergency</a
+                >
+              </li>
+              <li>
+                <a href="#about" onclick="switchPage('about')"
+                  >Licensing & Warranty</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Emergency Support</h4>
+            <p style="color: #94a3b8; font-size: 0.85rem">
+              Line 1: (800) 555-PIPE
+            </p>
+            <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 5px">
+              24/7/365 On-Call Dispatch
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 25px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+          "
+        >
+          &copy; 2024 Pipe Patrol Plumbing Services LLC. License #MP-940211. All
+          rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/yourkitid.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>
